@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Docs first
+
+Before generating or modifying any code, always check the `/docs` directory for a relevant docs file (e.g. `docs/ui.md` for UI work) and follow its standards. If no relevant doc exists, use your best judgment and consider whether one should be added.
+
 ## Project state
 
 This is a freshly bootstrapped `create-next-app` project (Next.js 16, React 19, TypeScript, Tailwind CSS v4). The only application code is the default boilerplate at `src/app/page.tsx` and `src/app/layout.tsx` — no meal-tracking features have been implemented yet despite the project name.
