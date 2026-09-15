@@ -4,7 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Docs first
 
-Before generating or modifying any code, always check the `/docs` directory for a relevant docs file (e.g. `docs/ui.md` for UI work) and follow its standards. If no relevant doc exists, use your best judgment and consider whether one should be added.
+Before generating or modifying any code, always check the `/docs` directory for a relevant docs file and follow its standards. If no relevant doc exists, use your best judgment and consider whether one should be added.
+
+- `docs/ui.md` — UI standards. Consult before writing or modifying any UI code.
+- `docs/data-fetching.md` — data fetching standards. Consult before writing or modifying any code that fetches or mutates data (Server Components, Server Actions, database helpers).
 
 ## Project state
 
