@@ -19,6 +19,7 @@ export default async function DashboardPage(props: PageProps<"/dashboard">) {
 
   const date = parseDateParam(dateParam);
   const meals = await getMealsForCurrentUserByDate(date);
+  const mealCreated = searchParams.created === "1";
 
-  return <DashboardView meals={meals} date={date} />;
+  return <DashboardView meals={meals} date={date} mealCreated={mealCreated} />;
 }

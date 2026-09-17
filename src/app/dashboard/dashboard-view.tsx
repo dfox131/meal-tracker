@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { CalendarIcon, UtensilsIcon } from "lucide-react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -36,9 +38,11 @@ function formatDateParam(date: Date) {
 export function DashboardView({
   meals,
   date,
+  mealCreated,
 }: {
   meals: MealWithFoodItems[];
   date: Date;
+  mealCreated: boolean;
 }) {
   const router = useRouter();
 
@@ -46,6 +50,14 @@ export function DashboardView({
     (sum, meal) => sum + getMealCalories(meal),
     0
   );
+
+  useEffect(() => {
+    if (!mealCreated) return;
+
+    toast.success("Meal logged successfully");
+    router.replace(`/dashboard?date=${formatDateParam(date)}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mealCreated]);
 
   const handleSelectDate = (selected: Date | undefined) => {
     if (!selected) return;

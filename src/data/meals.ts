@@ -1,5 +1,6 @@
 import "server-only";
 import { db } from "@/db";
+import { meals } from "@/db/schema";
 import { requireUserId } from "@/lib/auth";
 
 export async function getMealsForCurrentUserByDate(date: Date) {
@@ -28,4 +29,15 @@ export async function getMealsForCurrentUserByDate(date: Date) {
     },
     orderBy: { eatenAt: "desc" },
   });
+}
+
+export async function createMeal(data: { name: string; eatenAt: Date }) {
+  const userId = await requireUserId();
+
+  const [meal] = await db
+    .insert(meals)
+    .values({ ...data, userId })
+    .returning();
+
+  return meal;
 }

@@ -8,6 +8,8 @@ Before generating or modifying any code, always check the `/docs` directory for 
 
 - `docs/ui.md` — UI standards. Consult before writing or modifying any UI code.
 - `docs/data-fetching.md` — data fetching standards. Consult before writing or modifying any code that fetches or mutates data (Server Components, Server Actions, database helpers).
+- `docs/auth.md` — authentication standards. Consult before writing or modifying any auth-related code.
+- `docs/data-mutations.md` — data mutation standards. Consult before writing or modifying any code that mutates data.
 
 ## Project state
 
