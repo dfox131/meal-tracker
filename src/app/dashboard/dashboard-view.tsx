@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { CalendarIcon, UtensilsIcon } from "lucide-react";
+import { CalendarIcon, PlusIcon, UtensilsIcon } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -66,11 +67,21 @@ export function DashboardView({
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-10 sm:px-8">
-      <div className="flex flex-col gap-1">
-        <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
-        <p className="text-sm text-muted-foreground">
-          Track your meals for the day.
-        </p>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
+          <p className="text-sm text-muted-foreground">
+            Track your meals for the day.
+          </p>
+        </div>
+        <Button
+          nativeButton={false}
+          render={<Link href="/dashboard/meals/new" />}
+          className="w-full sm:w-auto"
+        >
+          <PlusIcon />
+          Log new meal
+        </Button>
       </div>
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -120,22 +131,24 @@ export function DashboardView({
             <ScrollArea className="max-h-96">
               <ul className="flex flex-col gap-3">
                 {meals.map((meal) => (
-                  <li
-                    key={meal.id}
-                    className="flex items-center justify-between gap-4 rounded-lg border p-3"
-                  >
-                    <div className="flex flex-col gap-1">
-                      <span className="font-medium">{meal.name}</span>
+                  <li key={meal.id}>
+                    <Link
+                      href={`/dashboard/meals/${meal.id}`}
+                      className="flex items-center justify-between gap-4 rounded-lg border p-3 transition-colors outline-none hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50"
+                    >
+                      <div className="flex flex-col gap-1">
+                        <span className="font-medium">{meal.name}</span>
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(meal.eatenAt).toLocaleTimeString(undefined, {
+                            hour: "numeric",
+                            minute: "2-digit",
+                          })}
+                        </span>
+                      </div>
                       <span className="text-xs text-muted-foreground">
-                        {new Date(meal.eatenAt).toLocaleTimeString(undefined, {
-                          hour: "numeric",
-                          minute: "2-digit",
-                        })}
+                        {getMealCalories(meal)} kcal
                       </span>
-                    </div>
-                    <span className="text-xs text-muted-foreground">
-                      {getMealCalories(meal)} kcal
-                    </span>
+                    </Link>
                   </li>
                 ))}
               </ul>
