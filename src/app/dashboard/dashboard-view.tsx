@@ -17,17 +17,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import type { getMealsForCurrentUserByDate } from "@/data/meals";
+import { getMealCalories } from "@/lib/meals";
 
 type MealWithFoodItems = Awaited<
   ReturnType<typeof getMealsForCurrentUserByDate>
 >[number];
-
-function getMealCalories(meal: MealWithFoodItems) {
-  return meal.mealFoodItems.reduce((sum, item) => {
-    const calories = item.foodItem?.calories ?? 0;
-    return sum + calories * Number(item.quantity);
-  }, 0);
-}
 
 function formatDateParam(date: Date) {
   const year = date.getFullYear();
