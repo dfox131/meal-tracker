@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { UserButton } from "@clerk/nextjs";
 import { CalendarIcon, PlusIcon, UtensilsIcon } from "lucide-react";
 import { toast } from "sonner";
 
@@ -68,14 +69,17 @@ export function DashboardView({
             Track your meals for the day.
           </p>
         </div>
-        <Button
-          nativeButton={false}
-          render={<Link href="/dashboard/meals/new" />}
-          className="w-full sm:w-auto"
-        >
-          <PlusIcon />
-          Log new meal
-        </Button>
+        <div className="flex w-full items-center gap-3 sm:w-auto">
+          <Button
+            nativeButton={false}
+            render={<Link href="/dashboard/meals/new" />}
+            className="flex-1 sm:flex-none"
+          >
+            <PlusIcon />
+            Log new meal
+          </Button>
+          <UserButton />
+        </div>
       </div>
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

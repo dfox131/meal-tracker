@@ -36,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
-          <ClerkProvider appearance={{ theme: shadcn }}>
+          <ClerkProvider appearance={{ theme: shadcn }} afterSignOutUrl="/">
             <div className="fixed top-4 right-4 z-50">
               <ModeToggle />
             </div>
