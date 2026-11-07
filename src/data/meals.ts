@@ -3,15 +3,19 @@ import { and, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { meals } from "@/db/schema";
 import { requireUserId } from "@/lib/auth";
+import { getDayRangeInTimeZone } from "@/lib/dates";
 
-export async function getMealsForCurrentUserByDate(date: Date) {
+/** Meals eaten on calendar day `dateParam` ("YYYY-MM-DD") in `timeZone`. */
+export async function getMealsForCurrentUserByDate(
+  dateParam: string,
+  timeZone: string
+) {
   const userId = await requireUserId();
 
-  const startOfDay = new Date(date);
-  startOfDay.setHours(0, 0, 0, 0);
-
-  const startOfNextDay = new Date(startOfDay);
-  startOfNextDay.setDate(startOfNextDay.getDate() + 1);
+  const { start: startOfDay, end: startOfNextDay } = getDayRangeInTimeZone(
+    dateParam,
+    timeZone
+  );
 
   return db.query.meals.findMany({
     where: {

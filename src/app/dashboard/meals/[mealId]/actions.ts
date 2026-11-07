@@ -11,6 +11,8 @@ import {
 } from "@/data/meal-food-items";
 import { updateMeal } from "@/data/meals";
 import { requireUserId } from "@/lib/auth";
+import { formatDateParamInTimeZone } from "@/lib/dates";
+import { getUserTimeZone } from "@/lib/timezone";
 
 // IDs use z.guid() rather than z.uuid(): Postgres's uuid type accepts any
 // 8-4-4-4-12 hex value (e.g. seeded ids), but z.uuid() enforces RFC version/variant bits.
@@ -21,13 +23,6 @@ const UpdateMealInput = z.object({
 });
 
 type UpdateMealInput = z.infer<typeof UpdateMealInput>;
-
-function formatDateParam(date: Date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
 
 export async function updateMealAction(input: UpdateMealInput) {
   await requireUserId();
@@ -41,7 +36,9 @@ export async function updateMealAction(input: UpdateMealInput) {
 
   revalidatePath("/dashboard");
   revalidatePath(`/dashboard/meals/${id}`);
-  redirect(`/dashboard?date=${formatDateParam(meal.eatenAt)}`);
+  // Return to the meal's calendar day in the user's timezone, not the server's.
+  const date = formatDateParamInTimeZone(meal.eatenAt, await getUserTimeZone());
+  redirect(`/dashboard?date=${date}`);
 }
 
 const AddFoodItemToMealInput = z.object({

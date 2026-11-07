@@ -18,29 +18,27 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import type { getMealsForCurrentUserByDate } from "@/data/meals";
+import { formatDateParam, parseDateParam } from "@/lib/dates";
 import { getMealCalories } from "@/lib/meals";
 
 type MealWithFoodItems = Awaited<
   ReturnType<typeof getMealsForCurrentUserByDate>
 >[number];
 
-function formatDateParam(date: Date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
-
 export function DashboardView({
   meals,
-  date,
+  dateParam,
+  timeZone,
   mealCreated,
 }: {
   meals: MealWithFoodItems[];
-  date: Date;
+  dateParam: string;
+  timeZone: string;
   mealCreated: boolean;
 }) {
   const router = useRouter();
+  // Rebuild the date in the browser's timezone so the calendar day is preserved.
+  const date = parseDateParam(dateParam) ?? new Date();
 
   const totalCalories = meals.reduce(
     (sum, meal) => sum + getMealCalories(meal),
@@ -51,7 +49,7 @@ export function DashboardView({
     if (!mealCreated) return;
 
     toast.success("Meal logged successfully");
-    router.replace(`/dashboard?date=${formatDateParam(date)}`);
+    router.replace(`/dashboard?date=${dateParam}`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mealCreated]);
 
@@ -140,6 +138,8 @@ export function DashboardView({
                           {new Date(meal.eatenAt).toLocaleTimeString(undefined, {
                             hour: "numeric",
                             minute: "2-digit",
+                            // Same zone on server and client: no hydration mismatch.
+                            timeZone,
                           })}
                         </span>
                       </div>

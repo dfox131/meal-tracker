@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ModeToggle } from "@/components/mode-toggle";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TimeZoneSync } from "@/components/time-zone-sync";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </div>
             {children}
             <Toaster />
+            <TimeZoneSync />
           </ClerkProvider>
         </ThemeProvider>
       </body>

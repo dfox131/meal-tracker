@@ -21,8 +21,7 @@ This is a freshly bootstrapped `create-next-app` project (Next.js 16, React 19, 
 - `npm run build` — production build
 - `npm run start` — serve the production build
 - `npm run lint` — run ESLint (flat config via `eslint.config.mjs`)
-
-There is no test runner configured yet.
+- `npm test` — run Vitest unit tests (`src/**/*.test.ts`, config in `vitest.config.ts`)
 
 ## Architecture
 
