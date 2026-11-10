@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: asks-for-missing-user-id
+expected_outcome: |
+  The assistant asks the user which user ID to chart and stops. It does not query
+  the database, list users, or produce a chart for some other/all users.

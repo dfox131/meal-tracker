@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: weekly-chart-new-york
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  A PNG bar chart of user_test_alice's daily calories for 2026-11-04 to 2026-11-10,
+  days bucketed in America/New_York, dates on the x-axis and calories on the y-axis.
+  Daily totals: 894, 157, 0, 1100, 650, 845, 230 (total 3876). No database access.

@@ -1,0 +1,164 @@
+{
+  "rows": [
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a0",
+      "eaten_at": "2026-11-03T20:00:00Z",
+      "item_id": "a0-1",
+      "quantity": "1",
+      "calories": 1000
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a1",
+      "eaten_at": "2026-11-04T13:00:00Z",
+      "item_id": "a1-1",
+      "quantity": "1",
+      "calories": 150
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a1",
+      "eaten_at": "2026-11-04T13:00:00Z",
+      "item_id": "a1-2",
+      "quantity": "1",
+      "calories": 105
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a2",
+      "eaten_at": "2026-11-04T23:30:00Z",
+      "item_id": "a2-1",
+      "quantity": "2",
+      "calories": 165
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a2",
+      "eaten_at": "2026-11-04T23:30:00Z",
+      "item_id": "a2-2",
+      "quantity": "1.5",
+      "calories": 206
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a3",
+      "eaten_at": "2026-11-05T17:00:00Z",
+      "item_id": "a3-1",
+      "quantity": "1",
+      "calories": 120
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a3",
+      "eaten_at": "2026-11-05T17:00:00Z",
+      "item_id": "a3-2",
+      "quantity": "0.5",
+      "calories": 73
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a4",
+      "eaten_at": "2026-11-08T04:30:00Z",
+      "item_id": "a4-1",
+      "quantity": "3",
+      "calories": 285
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a5",
+      "eaten_at": "2026-11-07T15:00:00Z",
+      "item_id": "a5-1",
+      "quantity": "1",
+      "calories": null
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a5",
+      "eaten_at": "2026-11-07T15:00:00Z",
+      "item_id": "a5-2",
+      "quantity": "1",
+      "calories": 245
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a6",
+      "eaten_at": "2026-11-08T18:00:00Z",
+      "item_id": "a6-1",
+      "quantity": "1",
+      "calories": 650
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a7",
+      "eaten_at": "2026-11-08T22:00:00Z",
+      "item_id": null,
+      "quantity": null,
+      "calories": null
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a8",
+      "eaten_at": "2026-11-09T12:00:00Z",
+      "item_id": "a8-1",
+      "quantity": "2.5",
+      "calories": 78
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a8",
+      "eaten_at": "2026-11-09T12:00:00Z",
+      "item_id": "a8-2",
+      "quantity": "2",
+      "calories": 75
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a9",
+      "eaten_at": "2026-11-10T00:30:00Z",
+      "item_id": "a9-1",
+      "quantity": "1.25",
+      "calories": 400
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a10",
+      "eaten_at": "2026-11-10T16:00:00Z",
+      "item_id": "a10-1",
+      "quantity": "1",
+      "calories": 180
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a10",
+      "eaten_at": "2026-11-10T16:00:00Z",
+      "item_id": "a10-2",
+      "quantity": "0.333",
+      "calories": 150
+    },
+    {
+      "user_id": "user_test_alice",
+      "meal_id": "a11",
+      "eaten_at": "2026-11-11T06:00:00Z",
+      "item_id": "a11-1",
+      "quantity": "1",
+      "calories": 999
+    },
+    {
+      "user_id": "user_test_bob",
+      "meal_id": "b1",
+      "eaten_at": "2026-11-06T18:00:00Z",
+      "item_id": "b1-1",
+      "quantity": "4",
+      "calories": 500
+    },
+    {
+      "user_id": "user_test_bob",
+      "meal_id": "b2",
+      "eaten_at": "2026-11-10T18:00:00Z",
+      "item_id": "b2-1",
+      "quantity": "3",
+      "calories": 500
+    }
+  ]
+}
